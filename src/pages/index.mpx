@@ -1,0 +1,56 @@
+<template>
+  <view class="main">
+    <list></list>
+    <view class="">这里测试文案啊啊 啊啊啊asdsad</view>
+    <van-button type="default" bindtap="add">默认按钮</van-button>
+    <view class="">
+      这里是 购物车数据的数据--->{{cartInfo.price}}+{{cartInfo.num}}
+    </view>
+    <van-button type="default" bindtap="go">去购物车页面</van-button>
+  </view>
+
+</template>
+
+<script>
+  import store from '../store/index'
+  import {createPage} from '@mpxjs/core'
+  let id =1
+  createPage({
+    computed: {
+      ...store.mapGetters({
+        cartInfo:'cartInfo'
+      })
+    },
+    methods: {
+      ...store.mapActions(['addCart']),
+      add(){
+        console.log("shit");
+        this.addCart({index:undefined,goods:{id:id++,price:50,num:1}})
+      },
+      go(){
+        wx.navigateTo({
+          url: 'cart'
+        })
+      }
+    },
+    onLoad: function (options) {
+      console.log(options);
+    }
+  })
+</script>
+
+<style lang="stylus">
+  .main
+    color: #999
+    font-size 20px
+
+</style>
+
+<script type="application/json">
+  {
+    "usingComponents": {
+      "list": "../components/list",
+      "van-button": "vant-weapp/dist/button/index"
+    }
+  }
+</script>

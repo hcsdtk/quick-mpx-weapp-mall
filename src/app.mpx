@@ -1,0 +1,19 @@
+<script>
+  App({})
+</script>
+
+<style lang="stylus">
+  view
+    box-sizing border-box
+
+</style>
+
+<script type="application/json">
+  {
+    "pages": [
+      "./pages/index",
+      "./pages/cart"
+    ],
+    "debug": true
+  }
+</script>

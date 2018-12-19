@@ -1,0 +1,17 @@
+{
+	"miniprogramRoot": "dist/",
+	"compileType": "miniprogram",
+	"setting": {
+		"urlCheck": false,
+		"es6": true,
+		"postcss": true,
+		"minified": true,
+		"newFeature": true,
+		"autoAudits": false
+	},
+	"appid": "wx6b22e21544862c91",
+	"projectname": "qw-weapp",
+	"description": "A mpx project",
+	"libVersion": "2.4.2",
+	"condition": {}
+}
