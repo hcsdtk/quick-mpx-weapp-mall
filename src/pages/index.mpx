@@ -12,7 +12,8 @@
 </template>
 
 <script>
-  import store from '../store/index'
+  import store from '../store/cart'
+  import AuthApi from '../api/Auth'
   import {createPage} from '@mpxjs/core'
   let id =1
   createPage({
@@ -34,7 +35,9 @@
       }
     },
     onLoad: function (options) {
-      console.log(options);
+      AuthApi.login().then(res=>{
+        console.log(res);
+      })
     }
   })
 </script>

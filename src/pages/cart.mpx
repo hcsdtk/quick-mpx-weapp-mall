@@ -9,7 +9,7 @@
 </template>
 
 <script>
-  import store from '../store/index'
+  import store from '../store/cart'
   import {createPage} from '@mpxjs/core'
   let id =1
   createPage({
