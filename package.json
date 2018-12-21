@@ -14,7 +14,8 @@
   "license": "ISC",
   "dependencies": {
     "@mpxjs/core": "^1.0.12",
-    "@mpxjs/fetch": "^1.0.5"
+    "@mpxjs/fetch": "^1.0.5",
+    "@mpxjs/promisify": "^1.0.5"
   },
   "devDependencies": {
     "@mpxjs/url-loader": "^1.0.0",
@@ -31,7 +32,6 @@
     "html-loader": "^0.5.5",
     "less": "^3.9.0",
     "less-loader": "^4.1.0",
-    "mockjs": "^1.0.1-beta3",
     "ora": "^2.0.0",
     "path": "^0.12.7",
     "rimraf": "^2.6.2",

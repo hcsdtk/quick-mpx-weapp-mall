@@ -1,19 +1,65 @@
 <script>
-  App({})
+  App({
+    onLaunch(){
+    }
+  })
 </script>
 
 <style lang="stylus">
-  view
-    box-sizing border-box
-
+  @import "./assets/stylus/base"
 </style>
 
 <script type="application/json">
   {
     "pages": [
-      "./pages/index",
-      "./pages/cart"
+      "./pages/index/index",
+      "./pages/member/index",
+      "./pages/order/index",
+      "./pages/mine/index"
     ],
-    "debug": true
+    "window": {
+      "navigationBarTitleText": "权味",
+      "navigationBarBackgroundColor": "#ffffff",
+      "navigationBarTextStyle": "black",
+      "backgroundTextStyle": "dark",
+      "backgroundColor": "#f5f5f5"
+    },
+    "tabBar": {
+      "color": "#979797",
+      "selectedColor": "#000000",
+      "borderStyle": "black",
+      "backgroundColor": "#fff",
+      "list": [
+        {
+          "iconPath": "./assets/images/ic_tab1.png?fallback",
+          "selectedIconPath": "./assets/images/ic_tab1_active.png?fallback",
+          "pagePath": "pages/index/index",
+          "text": "点餐"
+        },
+        {
+          "iconPath": "./assets/images/ic_tab3.png?fallback",
+          "selectedIconPath": "./assets/images/ic_tab3_active.png?fallback",
+          "pagePath": "pages/member/index",
+          "text": "会员"
+        },
+        {
+          "iconPath": "./assets/images/ic_tab2.png?fallback",
+          "selectedIconPath": "./assets/images/ic_tab2_active.png?fallback",
+          "pagePath": "pages/order/index",
+          "text": "订单"
+        },
+        {
+          "iconPath": "./assets/images/ic_tab4.png?fallback",
+          "selectedIconPath": "./assets/images/ic_tab4_active.png?fallback",
+          "pagePath": "pages/mine/index",
+          "text": "我的"
+        }
+      ]
+    },
+    "debug": true,
+    "networkTimeout": {
+      "request": 10000,
+      "downloadFile": 30000
+    }
   }
 </script>
