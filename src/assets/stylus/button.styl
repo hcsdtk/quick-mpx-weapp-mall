@@ -1,0 +1,107 @@
+@import "./constant"
+.button
+  box-sizing border-box
+  display flex
+  flex-direction row
+  justify-content center
+  align-content center
+  align-items center
+  text-align center
+  vertical-align middle
+  touch-action manipulation
+  cursor pointer
+  background-image none
+  white-space nowrap
+  user-select none
+  font-size main-font-size
+  border-radius 2px
+  border 0 !important
+  position relative
+  text-decoration none
+  height main-button-height
+  box-shadow none
+  background main-button-bg-color !important
+  color white-color !important
+  margin 0
+  overflow hidden
+
+  &:after
+    display none
+
+.button-hover
+  opacity .9
+
+
+.button-clear
+  border: 1px solid main-button-bg-color !important
+  background none !important
+  color main-button-bg-color !important
+
+
+.button-grey
+  color white-color !important
+  background grey-button-bg-color !important
+
+  &.button-clear
+    border: 1px solid grey-button-bg-color !important
+    background none !important
+    color grey-button-bg-color !important
+
+.button-black
+  color white-color !important
+  background black-button-bg-color !important
+
+  &.button-clear
+    border: 1px solid black-button-bg-color !important
+    background none !important
+    color black-button-bg-color !important
+
+
+.button-large
+  height large-button-height
+
+.button-small
+  height small-button-height
+
+.button-circle
+  border-radius main-button-height
+
+  &.button-large
+    border-radius large-button-height
+
+  &.button-small
+    border-radius small-button-height
+
+
+.button-disabled
+  color white-color !important
+  background disabled-button-bg-color !important
+
+.button-loading
+  opacity .6
+
+  & .button-loading-inner
+    display inline-block
+
+
+.button-loading-inner
+  display none
+  margin-right 12px
+  vertical-align middle
+  width 14px
+  height 14px
+  background 0 0
+  border-radius 50%
+  border-width 2px
+  border-style solid
+  border-color white-color white-color white-color transparent
+  animation all .6s linear
+  animation-iteration-count infinite
+
+
+//@keyframes btn-spin
+//  0%
+//    transform rotate(0)
+
+
+

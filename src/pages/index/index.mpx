@@ -1,4 +1,5 @@
 <template>
+  <dialog></dialog>
   <view class="page">
 
   </view>
@@ -30,6 +31,7 @@
     "enablePullDownRefresh": false,
     "disableScroll": false,
     "usingComponents": {
+      "dialog": "../../components/dialog/index"
     }
   }
 </script>

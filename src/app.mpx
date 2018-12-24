@@ -1,6 +1,11 @@
 <script>
+  import "./helper/mpxHelper"
+
   App({
-    onLaunch(){
+    onLaunch() {
+    },
+    onShow(options) {
+      console.log(options)
     }
   })
 </script>
@@ -22,7 +27,7 @@
       "navigationBarBackgroundColor": "#ffffff",
       "navigationBarTextStyle": "black",
       "backgroundTextStyle": "dark",
-      "backgroundColor": "#f5f5f5"
+      "backgroundColor": "#F8F9FB"
     },
     "tabBar": {
       "color": "#979797",

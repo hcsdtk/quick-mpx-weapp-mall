@@ -1,12 +1,12 @@
 const config = {
   isOnline: process.env.NODE_ENV === 'production',
-  apiUrl: "https://www.easy-mock.com/mock/5c1c5ab16fedb679d1b94aa3/quick-mpx-weapp-mall-mock",
+  apiUrl: "https://plan.haosesalad.com",
   httpCode: {
     success: 200
   }
 };
 
 
-config.apiUrl = config.isOnline ? "https://www.quanweibanfan.com" : config.apiUrl; //不准修改
+config.apiUrl = config.isOnline ? "https://plan.haosesalad.com" : config.apiUrl; //不准修改
 
 export default config

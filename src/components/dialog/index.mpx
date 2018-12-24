@@ -1,0 +1,62 @@
+<template>
+  <mask visible="{{show}}" isClick="{{false}}"></mask>
+  <view class="dialog">
+    <view class="dialog-title">登录小程序</view>
+    <view class="dialog-desc">
+      <text></text>
+    </view>
+    <view class="dialog-footer">
+
+      <button class="button button-circle " hover-class="button-hover">登录
+      </button>
+    </view>
+  </view>
+</template>
+
+<script>
+  import {createComponent} from '@mpxjs/core'
+  const _f = () => {
+  }
+  createComponent({
+    visible: {   //用于外部控制组件显示和隐藏
+      type: Boolean,
+      value: true,
+      observer(newVal) {
+        this.show = newVal
+      }
+    },
+    data: {
+      show: true
+    },
+    methods: {},
+    ready() {
+
+    }
+  })
+</script>
+
+<style lang="stylus">
+  @import "./../../assets/stylus/constant"
+  @import "./../../assets/stylus/button"
+  .dialog
+    position absolute
+    right auto
+    bottom auto
+    top 50%
+    left 50%
+    height auto
+    width 290px
+    z-index dialog-zindex
+    background-color white-color
+    border-radius 6px
+    padding 23px
+    overflow hidden
+    transform translate(-50%, -50%)
+</style>
+<script type="application/json">
+  {
+    "usingComponents": {
+      "mask": "../mask/index"
+    }
+  }
+</script>
