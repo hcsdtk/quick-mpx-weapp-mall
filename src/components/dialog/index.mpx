@@ -1,12 +1,14 @@
 <template>
   <mask visible="{{show}}" isClick="{{false}}"></mask>
   <view class="dialog" wx:if="{{show}}">
-    <view class="dialog-title">登录小程序</view>
+    <view class="dialog-title">{{dialog.title}}</view>
     <view class="dialog-desc">
-      <text>等你好久了！\r\n欢迎来到权味+小程序。</text>
+      <text>{{dialog.content}}</text>
     </view>
     <view class="dialog-footer">
-      <button class="button button-circle" hover-class="button-hover">登录</button>
+      <button class="button button-big  button-circle" open-type="{{openType}}" bindgetuserinfo="bindgetuserinfo"
+              hover-class="button-hover">{{dialog.btnText}}
+      </button>
     </view>
   </view>
 </template>
@@ -17,83 +19,54 @@
   const _f = () => {
   }
   createComponent({
-    visible: {   //用于外部控制组件显示和隐藏
-      type: Boolean,
-      value: true,
-      observer(newVal) {
-        this.show = newVal
-      }
+    properties: {
+      visible: {   //用于外部控制组件显示和隐藏
+        type: Boolean,
+        value: true,
+        observer(newVal) {
+          this.show = newVal
+        }
+      },
+      openType: String
     },
     data: {
-      show: true,
-      dialog: {}
+      show: false,
+      dialog: {
+        title: '登录小程序',
+        content: `等你好久了！\r\n欢迎来到权味+小程序。`,
+        btnText: '登录权味+',
+        resolve: _f,
+        reject: _f
+      }
     },
     methods: {
       open(options = {}) {
         const {
-          title = '温馨提示',
-          content = '',
-          confirmText = '确定',
-          showCancel = false,
-          cancelText = '取消',
-          openSetting = false
+          title = '登录小程序',
+          content = `等你好久了！\r\n欢迎来到权味+小程序。`,
+          btnText = '登录权味+',
         } = options
-
         return new Promise((resolve, reject) => {
-          this.setData({
-            dialog: {
-              show: true,
-              title,
-              content,
-              confirmText,
-              showCancel,
-              cancelText,
-              openSetting,
-              resolve,
-              reject
-            }
-          })
+          this.show = true
+          this.dialog = {
+            title,
+            content,
+            btnText,
+            resolve,
+            reject
+          }
         })
       },
-      hideDialog(){
-        this.setData({
-          [`dialog.show`]: false
-        })
-      },
-      _handleButtonClick(e) {
-        const type = e.currentTarget.dataset.type
-        const dialogData = this.data.dialog || {}
+      bindgetuserinfo(e) {
+        const dialogData = this.dialog || {}
         const {
           resolve = _f, reject = _f
         } = dialogData
-        this.setData({
-          [`dialog.show`]: false
-        })
-        if (type === 'confirm') {
-          // 按钮tap点击触发授权页（promise可能会影响到）
-          if(this.data.dialog.openSetting) {
-            this._openSetting(resolve, reject)
-            return
-          }
-          resolve({
-            type: 'confirm'
-          })
-        } else {
-          reject({
-            type: 'cancel'
-          })
+        if (e.detail.errMsg.indexOf(`ok`) !== -1) {
+          this.show = false
+          resolve(e.detail)
         }
       },
-      _openSetting(resolve, reject) {
-        wx.openSetting({
-          success(res) {
-            resolve({
-              authSetting: res.authSetting,
-              type: 'confirm'
-            })
-          }
-        })
-      }
     },
     ready() {
 
@@ -118,14 +91,27 @@
     padding 23px
     overflow hidden
     transform translate(-50%, -50%)
+
     &-title
       font-size big-font-size
       text-align center
       padding-bottom 18px
       font-weight 600
+
     &-desc
       text-align center
       padding-bottom 16px
+
+    &-footer
+      width 100%
+      display flex
+      flex-direction row
+      justify-content center
+
+      & .button
+        width 100%
+
+
 </style>
 <script type="application/json">
   {

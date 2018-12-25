@@ -23,10 +23,15 @@
   background main-button-bg-color !important
   color white-color !important
   margin 0
+  padding 0 20px
   overflow hidden
 
   &:after
     display none
+
+  & ~ & {
+    margin-left 15px
+  }
 
 .button-hover
   opacity .9
@@ -60,6 +65,9 @@
 .button-large
   height large-button-height
 
+.button-big
+  height big-button-height
+
 .button-small
   height small-button-height
 
@@ -69,8 +77,13 @@
   &.button-large
     border-radius large-button-height
 
+  &.button-big
+    border-radius big-button-height
+
   &.button-small
     border-radius small-button-height
+
+
 
 
 .button-disabled

@@ -1,5 +1,6 @@
 import mpx from '@mpxjs/core'
 import mpxFetch from '@mpxjs/fetch'
+
 mpx.use(mpxFetch)
 
 import Config from "../config/index"
@@ -14,6 +15,10 @@ mpx.xfetch.interceptors.request.use(function (config) {
         config.header = {
           'Authorization': res
         }
+        config.data.member_id = res
+        config.data.bigVersion = 'v3'
+        config.data.version = '3.1.1.8'
+        config.data.scene = 1001
         resolve(config)
       }
     })
@@ -48,10 +53,12 @@ function handlerResponseData(response) {
   }
   return result
 }
+
 //判断请求是否成功
 function isSuccess(response) {
   return (response.httpCode === 200 && response.serverCode === Config.httpCode.success)
 }
+
 //请求成功拦截器
 function interceptorsResponse(response) {
   const responseData = handlerResponseData(response)

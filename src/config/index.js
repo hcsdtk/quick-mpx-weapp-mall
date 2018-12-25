@@ -2,7 +2,7 @@ const config = {
   isOnline: process.env.NODE_ENV === 'production',
   apiUrl: "https://plan.haosesalad.com",
   httpCode: {
-    success: 200
+    success: 0
   }
 };
 

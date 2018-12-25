@@ -3,11 +3,13 @@
 import mpx from '@mpxjs/core'
 
 mpx.mixin({
-  data:{
-    mixins:{
-      shit:'你好'
+  data: {
+    mixins: {
+      shit: '你好'
     }
   },
-  methods: {
+  methods: {},
+  tapNavTo(e) {
+    console.log(e);
   }
 })
