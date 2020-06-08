@@ -1,8 +1,8 @@
-import {createStore} from '@mpxjs/core'
+import { createStore } from '@mpxjs/core'
 
 const CartStore = createStore({
   state: {
-    list: [],
+    list: []
   },
   getters: {
     cartInfo: state => {
@@ -11,17 +11,17 @@ const CartStore = createStore({
         num: 0
       }
       state.list.forEach(item => {
-        info.price = Math.round(info.price * 100 + (item.price * item.num) * 100) / 100
+        info.price = Math.round(info.price * 100 + item.price * item.num * 100) / 100
         info.num = Math.round(info.num * 100 + item.num * 100) / 100
       })
       return info
     }
   },
   mutations: {
-    add(state, payload) {
+    add (state, payload) {
       if (payload.index === undefined) {
         payload.index = state.list.findIndex(item => {
-          return (item.id === payload.goods.id)
+          return item.id === payload.goods.id
         })
       }
       if (payload.goods.num === 0) {
@@ -38,7 +38,7 @@ const CartStore = createStore({
     }
   },
   actions: {
-    addCart({commit}, payload) {
+    addCart ({ commit }, payload) {
       commit('add', payload)
     }
   }

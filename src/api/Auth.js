@@ -1,9 +1,10 @@
-import request from "../utils/request"
+import request from '../utils/request'
 
 class Auth {
-  static login() {
+  static login () {
     return request.get('/api/index/index', {
-      member_id: 1, bigVersion: 'v3',
+      member_id: 1,
+      bigVersion: 'v3',
       version: '3.1.1.8',
       scene: 1001
     })

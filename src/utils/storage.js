@@ -1,12 +1,17 @@
 export default {
-  get(key) {
+  get (key) {
     let data = wx.getStorageSync(key)
-    if (typeof data === "string" && data.indexOf('{') !== -1 && data.indexOf('}') !== -1 && data.indexOf(':') !== -1) {
+    if (
+      typeof data === 'string' &&
+      data.indexOf('{') !== -1 &&
+      data.indexOf('}') !== -1 &&
+      data.indexOf(':') !== -1
+    ) {
       data = JSON.parse(data)
     }
     return data
   },
-  set(key, data,) {
+  set (key, data) {
     if (data instanceof Object) {
       data = JSON.stringify(data)
     }
@@ -15,7 +20,7 @@ export default {
     }
     wx.setStorageSync(key, data)
   },
-  remove(key) {
+  remove (key) {
     wx.removeStorageSync(key)
   }
 }

@@ -1,7 +1,7 @@
-import request from "../utils/request"
+import request from '../utils/request'
 
 class Index {
-  static index() {
+  static index () {
     return request.get('/api/index/index', {})
   }
 }
