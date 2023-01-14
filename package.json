@@ -41,7 +41,7 @@
     "vant-weapp": "^0.4.9",
     "webpack": "^4.16.1",
     "webpack-bundle-analyzer": "^2.11.1",
-    "webpack-cli": "^3.1.0",
+    "webpack-cli": "^3.3.12",
     "webpack-merge": "^4.1.2"
   }
 }
